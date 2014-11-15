@@ -1,0 +1,31 @@
+name:                webbing
+version:             0.1.0.0
+synopsis:            Stuff
+description:         Ssttuuffff
+license:             MIT
+license-file:        LICENSE
+author:              Eric Conlon
+maintainer:          ejconlon@gmail.com
+copyright:           (c) 2014 Eric Conlon, all rights reserved
+category:            Webbing
+build-type:          Simple
+cabal-version:       >=1.10
+
+extra-source-files:
+        README.md ,
+        LICENSE
+
+executable webbing
+  main-is:             Main.hs
+
+  -- other-modules:
+  -- other-extensions:
+
+  build-depends:
+        base >=4.6 && <4.7 ,
+        blaze-html ,
+        scotty
+
+  hs-source-dirs:      src
+
+  default-language:    Haskell2010
