@@ -24,7 +24,8 @@ executable webbing
   build-depends:
         base >=4.6 && <4.7 ,
         blaze-html ,
-        scotty
+        scotty ,
+        wai-extra
 
   hs-source-dirs:      src
 
