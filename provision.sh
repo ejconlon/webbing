@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Deploys the application on heroku. It is not necessary to build beforehand,
+# but it's probably smart to do so just to confirm everything should work.
+
 # Ensure Heroku is installed
 
 INSTALL_HEROKU="wget -qO- https://toolbelt.heroku.com/install.sh | sh"

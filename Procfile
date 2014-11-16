@@ -1,1 +1,1 @@
-web: ./dist/build/webbing/webbing
+web: ./dist/build/webbing-exec/webbing-exec
