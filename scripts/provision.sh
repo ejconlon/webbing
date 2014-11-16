@@ -1,10 +1,11 @@
 #!/bin/bash
 set -eux
+cd ..
 
 # Deploys the application on heroku. It is not necessary to build beforehand,
 # but it's probably smart to do so just to confirm everything should work.
 
-# Set appname
+# Set appname if present as first argument
 
 APPNAME="${1-}"
 
@@ -16,18 +17,18 @@ command -v heroku >/dev/null 2>&1 || { $INSTALL_HEROKU; }
 
 # Login
 
-#heroku login
+heroku login
 
 # Provision instance
 
-#heroku create --stack=cedar --buildpack \
-#  https://github.com/begriffs/heroku-buildpack-haskell.git
+heroku create --stack=cedar --buildpack \
+  https://github.com/begriffs/heroku-buildpack-haskell.git
 
 # Add database
 
-#heroku addons:add heroku-postgresql:dev
-#DBNAME=$(heroku config | grep POSTGRES | cut -d: -f1)
-#heroku pg:promote $DBNAME
+heroku addons:add heroku-postgresql:dev
+DBNAME=$(heroku config | grep POSTGRES | cut -d: -f1)
+heroku pg:promote $DBNAME
 
 # Rename
 
