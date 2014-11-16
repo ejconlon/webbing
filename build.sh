@@ -1,4 +1,5 @@
 #!/bin/bash
+set -eux
 
 # Builds and tests the application from scratch.  Requires ghc && cabal.
 

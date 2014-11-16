@@ -1,4 +1,5 @@
 #!/bin/bash
+set -eux
 
 # Deploys the application on heroku. It is not necessary to build beforehand,
 # but it's probably smart to do so just to confirm everything should work.
