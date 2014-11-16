@@ -20,21 +20,21 @@ library
   exposed-modules: Webbing
   hs-source-dirs: src
   build-depends:
-        base >=4.6 && <4.8,
-        blaze-html ,
-        persistent ,
-        persistent-postgresql ,
-        persistent-sqlite ,
-        scotty
+        base >= 4.6,
+        blaze-html >= 0.7,
+        persistent >= 2.1,
+        persistent-postgresql >= 2.1,
+        persistent-sqlite >= 2.1,
+        scotty >= 0.9
 
 executable webbing-exec
   default-language: Haskell2010
   hs-source-dirs: exec
   main-is: Main.hs
   Build-depends:
-        base ,
-        scotty ,
-        wai-extra ,
+        base,
+        scotty,
+        wai-extra >= 3.0,
         webbing
 
 test-suite webbing-test
@@ -43,9 +43,9 @@ test-suite webbing-test
   hs-source-dirs: test
   main-is: Main.hs
   build-depends:
-        base ,
-        hspec2 ,
-        hspec-wai ,
-        scotty ,
-        wai ,
+        base,
+        hspec2 >= 0.5,
+        hspec-wai >= 0.5,
+        scotty,
+        wai >= 3.0,
         webbing
