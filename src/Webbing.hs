@@ -1,15 +1,15 @@
 {-# LANGUAGE OverloadedStrings #-}
 
-module Webbing (app, AppConfig(..), Backend(..)) where
+module Webbing (app, AppConfig(..), Backend(..), initialize) where
 
 import           Data.Monoid (mconcat)
 import qualified Text.Blaze.Html5 as H
 import qualified Text.Blaze.Html5.Attributes as A
 import           Text.Blaze.Html.Renderer.Text (renderHtml)
+import           Database.Persist.Sql (runMigration)
 import qualified Web.Scotty as S
 import           Webbing.Database as DB
-import           Webbing.Model
-import           Webbing.View
+import           Webbing.Model (migrateAll)
 
 data Backend = SqliteBackend String | PostgresqlBackend
 
@@ -29,3 +29,9 @@ app appConfig = do
     blaze $ do
       H.h1 $ H.toHtml $ "Scotty, " ++ beam ++ " me up!"
       H.p "yup"
+
+initialize :: AppConfig -> IO ()
+initialize appConfig = do
+  --db <- connect (backend appConfig)
+  --db $ runMigration migrateAll
+  return () -- TODO ^^ these cause linker errors :(

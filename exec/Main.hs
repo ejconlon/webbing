@@ -3,7 +3,7 @@ module Main (main) where
 import           Data.Maybe (fromMaybe)
 import           System.Environment (lookupEnv)
 import           Network.Wai.Middleware.RequestLogger (logStdoutDev)
-import           Webbing (app, AppConfig(..), Backend(..))
+import           Webbing (app, AppConfig(..), Backend(..), initialize)
 import qualified Web.Scotty as S
 
 data ContainerConfig = ContainerConfig { port :: Int }
@@ -21,6 +21,7 @@ readConfig = do
 main :: IO ()
 main = do
   config <- readConfig
+  initialize (appConfig config)
   S.scotty (port $ containerConfig config) $ do
     S.middleware logStdoutDev
     app $ appConfig config
