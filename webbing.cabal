@@ -17,11 +17,14 @@ extra-source-files:
 
 library
   default-language: Haskell2010
+  exposed-modules: Webbing
   hs-source-dirs: src
   build-depends:
         base >=4.6 && <4.8,
         blaze-html ,
         persistent ,
+        persistent-postgresql ,
+        persistent-sqlite ,
         scotty
 
 executable webbing-exec
@@ -30,7 +33,6 @@ executable webbing-exec
   main-is: Main.hs
   Build-depends:
         base ,
-        persistent-postgresql ,
         scotty ,
         wai-extra ,
         webbing
@@ -39,10 +41,11 @@ test-suite webbing-test
   default-language: Haskell2010
   type: exitcode-stdio-1.0
   hs-source-dirs: test
-  main-is: Test.hs
+  main-is: Main.hs
   build-depends:
         base ,
+        hspec2 ,
         hspec-wai ,
-        persistent-sqlite ,
         scotty ,
+        wai ,
         webbing

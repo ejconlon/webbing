@@ -1,6 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 
-module Webbing (AppConfig, app) where
+module Webbing (app, AppConfig(..)) where
 
 import           Data.Monoid (mconcat)
 import qualified Text.Blaze.Html5 as H
@@ -13,13 +13,10 @@ data AppConfig = AppConfig { }
 blaze :: H.Html -> S.ActionM ()
 blaze = S.html . renderHtml
 
-app :: AppConfig -> ScottyM ()
-app = do
-  S.middleware logStdoutDev
-
+app :: AppConfig -> S.ScottyM ()
+app appConfig = do
   S.get "/:word" $ do
     beam <- S.param "word" :: S.ActionM String
     blaze $ do
       H.h1 $ H.toHtml $ "Scotty, " ++ beam ++ " me up!"
       H.p "yup"
-
