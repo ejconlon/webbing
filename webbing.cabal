@@ -20,7 +20,7 @@ library
   exposed-modules: Webbing
   hs-source-dirs: src
   build-depends:
-        base >=4.6 && <4.7,
+        base >=4.6 && <4.8,
         blaze-html >=0.7 && <0.8,
         persistent >=2.1 && <2.2,
         persistent-postgresql >=2.1 && <2.2,
