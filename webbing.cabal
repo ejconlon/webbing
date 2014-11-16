@@ -22,8 +22,11 @@ executable webbing
   -- other-extensions:
 
   build-depends:
-        base >=4.6 && <4.7 ,
+        base >=4.6 && <4.8,
         blaze-html ,
+        email-validation ,
+        persistent ,
+        persistent-sqlite ,
         scotty ,
         wai-extra
 
