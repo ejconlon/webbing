@@ -6,10 +6,10 @@ import           Network.Wai (Application)
 import           Test.Hspec
 import           Test.Hspec.Wai
 import qualified Web.Scotty as S
-import           Webbing (app, AppConfig(..))
+import           Webbing (app, AppConfig(..), Backend(..))
 
 appConfig :: AppConfig
-appConfig = AppConfig {}
+appConfig = AppConfig { backend = SqliteBackend "test" }
 
 spec :: Spec
 spec = with (S.scottyApp $ app appConfig) $ do
