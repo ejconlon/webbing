@@ -1,6 +1,5 @@
 #!/bin/bash
 set -eux
-cd ..
 
 # Tears down the heroku app.
 

@@ -7,6 +7,9 @@ import qualified Text.Blaze.Html5 as H
 import qualified Text.Blaze.Html5.Attributes as A
 import           Text.Blaze.Html.Renderer.Text (renderHtml)
 import qualified Web.Scotty as S
+import           Webbing.Database
+import           Webbing.Model
+import           Webbing.View
 
 data AppConfig = AppConfig { }
 
